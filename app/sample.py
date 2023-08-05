@@ -1,9 +1,17 @@
 print("Hello World!!!")
 
+from urllib.parse import unquote, urlparse, parse_qs
 
-import pandas as pd
-import requests
-from selenium import webdriver
-from time import sleep
-from selenium.webdriver.support.select import Select
-from bs4 import BeautifulSoup
+# まずはエンコードされたURLをデコード
+encoded_url = "/sspa/click?ie=UTF8&spc=MTo0MjMzNzA4OTM5NTUzOTQ3OjE2OTEyMDcxMTk6c3BfYXRmOjEzMDMwMDgwNDQ5ODo6MDo6&url=%2FVTCOSMETICS-%25E3%2583%2596%25E3%2582%25A4%25E3%2583%2586%25E3%2582%25A3%25E3%2582%25B3%25E3%2582%25B9%25E3%2583%25A1%25E3%2583%2586%25E3%2583%2583%25E3%2582%25AF%25E3%2582%25B9-%25E3%2580%2590%25E6%25AD%25A3%25E8%25A6%258F%25E5%2593%2581%25E3%2580%2591%25E3%2582%25B7%25E3%2582%25AB%25E3%2583%25AC%25E3%2583%2581A-%25E3%2582%25BB%25E3%2583%2596%25E3%2583%25B3%25E3%2583%2587%25E3%2582%25A4%25E3%2582%25BA%25E3%2583%259E%25E3%2582%25B9%25E3%2582%25AF-%25E3%2583%25AC%25E3%2583%2581%25E3%2583%258E%25E3%2583%25BC%25E3%2583%25AB%2Fdp%2FB0BTHRPMXC%2Fref%3Dsr_1_4_sspa%3F__mk_ja_JP%3D%25E3%2582%25AB%25E3%2582%25BF%25E3%2582%25AB%25E3%2583%258A%26crid%3D6MYE356JBYKU%26keywords%3D%25E9%259F%2593%25E5%259B%25BD%25E3%2582%25B3%25E3%2582%25B9%25E3%2583%25A1%26qid%3D1691207119%26sprefix%3D%25E9%259F%2593%25E5%259B%25BD%25E3%2582%25B3%25E3%2582%25B9%25E3%2583%25A1%252Caps%252C201%26sr%3D8-4-spons%26sp_csd%3Dd2lkZ2V0TmFtZT1zcF9hdGY%26psc%3D1"
+decoded_url = unquote(encoded_url)
+
+# 次に解析したURLからクエリパラメータを取得
+parsed_url = urlparse(decoded_url)
+query_params = parse_qs(parsed_url.query)
+
+# 'url'クエリパラメータの値を出力
+print("https://www.amazon.co.jp/" query_params['url'][0])
+
+# Amazon の URL を出力
+print("https://www.amazon.co.jp/" + query_params['url'][0])
