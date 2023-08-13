@@ -16,7 +16,7 @@ print(urls)
 product_divs = []
 
 # 各URLをループして情報を取得
-for url in urls:
+for index, url in  enumerate(urls):
     # time.sleep(1)  # 1秒待つ
     # URLからWebページを取得
     response = requests.get(url)
@@ -29,6 +29,9 @@ for url in urls:
 
     # <body>タグ内の、dui-card searchresultitem クラスを含む div タグをすべて抽出
     product_divs += body.find_all('div', class_='dui-card searchresultitem')
+    # 進行状態を表示
+    progress_percentage = (index + 1) / len(urls) * 100 # 修正した箇所
+    print(f"進行状態: {progress_percentage:.2f}% ({index + 1}/{len(urls)})") # こちらも修正
 
 info_urls = set()  # 重複なくinfo_urlを保存するための集合
 products = []
