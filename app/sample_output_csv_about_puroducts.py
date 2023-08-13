@@ -7,6 +7,13 @@ from bs4 import BeautifulSoup
 
 
 # AmazonのURL
+# ページ１
+url = "https://www.amazon.co.jp/s?k=%E9%9F%93%E5%9B%BD%E3%82%B3%E3%82%B9%E3%83%A1&__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&crid=2HGHTZJ98Z987&sprefix=%E9%9F%93%E5%9B%BD%E3%82%B3%E3%82%B9%E3%83%A1%2Caps%2C194&ref=nb_sb_noss_1"
+# ページ２
+url = "https://www.amazon.co.jp/s?k=%E9%9F%93%E5%9B%BD%E3%82%B3%E3%82%B9%E3%83%A1&__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&crid=2HGHTZJ98Z987&sprefix=%E9%9F%93%E5%9B%BD%E3%82%B3%E3%82%B9%E3%83%A1%2Caps%2C194&ref=nb_sb_noss_1"
+# ページ３
+url = "https://www.amazon.co.jp/s?k=%E9%9F%93%E5%9B%BD%E3%82%B3%E3%82%B9%E3%83%A1&__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&crid=2HGHTZJ98Z987&sprefix=%E9%9F%93%E5%9B%BD%E3%82%B3%E3%82%B9%E3%83%A1%2Caps%2C194&ref=nb_sb_noss_1"
+# ページ４
 url = "https://www.amazon.co.jp/s?k=%E9%9F%93%E5%9B%BD%E3%82%B3%E3%82%B9%E3%83%A1&__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&crid=2HGHTZJ98Z987&sprefix=%E9%9F%93%E5%9B%BD%E3%82%B3%E3%82%B9%E3%83%A1%2Caps%2C194&ref=nb_sb_noss_1"
 
 # URLからWebページを取得
@@ -36,7 +43,7 @@ for div in product_divs:
     # 星の数
     rating_span = div.find('span', {'aria-label': True})
     if rating_span:
-        product['rating'] = rating_span.get('aria-label').strip()
+        product['rating'] = product['rating'] = "星" + rating_span.get('aria-label').strip().replace('5つ星のうち', '')
     else:
         product['rating'] = None
 

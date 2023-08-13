@@ -8,14 +8,14 @@
 | sample_output_csv_about_puroducts.py | Amazon スクレイピング完了 |
 
 ## What it is?🧐
-A repository for building Python development environments on your own PC using Docker.
-This allows you to build an environment for scraping Python and LINE APIs, or for specific data on e-commerce sites, or to use AI tools such as Chat GPT at a more advanced level.
 
-To set up a generic environment - using the Mac book Air's M2 chip.
 
 
 ## How to use it ?🧐
+<!-- 環境構築 -->
+git clone https://github.com/yumelab-imai/python_development_environment_with_docker.git
 
+cd python_development_environment_with_docker/
 <!--  root  -->
 ```
 <!-- イメージとコンテナの作成、コンテナの起動を実行 -->

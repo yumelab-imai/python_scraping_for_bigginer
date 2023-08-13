@@ -8,8 +8,10 @@ RUN python -m pip install jupyterlab
 
 
 # RUN pip install pandas
-# RUN pip install requests
+RUN pip install requests
 # RUN pip install selenium
 
 # WebページのHTMLを解析し、特定のタグや属性値を抽出する
 # RUN pip install beautifulsoup4
+
+
