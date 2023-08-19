@@ -5,9 +5,6 @@ from bs4 import BeautifulSoup
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 
-# 楽天のURL
-# url = "https://www.rakuten.co.jp/category/562084/?l2-id=shop_header_rgenre3"
-
 
 # 外部ファイルからURLを読み込むanalysis_data/
 with open('urls.txt', 'r') as file:
